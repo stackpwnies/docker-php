@@ -1,0 +1,3 @@
+[submodule "nginx/rocket-nginx"]
+	path = nginx/rocket-nginx
+	url = https://github.com/satellitewp/rocket-nginx.git
