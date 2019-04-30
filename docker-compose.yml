@@ -15,7 +15,7 @@ services:
         labels:
             "traefik.enable": "true"
             "traefik.frontend.entryPoints": "http,https"
-            "traefik.frontend.rule": "Host: ${APP_HOSTNAME:example.com}"
+            "traefik.frontend.rule": "Host: ${APP_HOSTNAME}"
 
     php-fpm:
         build: php-fpm
