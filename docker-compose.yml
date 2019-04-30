@@ -1,0 +1,17 @@
+version: "3"
+services:
+
+    web:
+        image: nginx:stable-alpine
+        working_dir: /application
+        volumes:
+            - ${COMPOSE_PROJECT_NAME}-data:/application
+            - ${COMPOSE_PROJECT_NAME}-nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+        ports:
+            - 80
+
+    php-fpm:
+        build: php-fpm
+        working_dir: /application
+        volumes:
+            - ${COMPOSE_PROJECT_NAME}-data:/application
