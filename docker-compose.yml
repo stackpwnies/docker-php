@@ -2,18 +2,19 @@ version: "2"
 
 volumes:
     data:
-    nginx:
 
 services:
 
     web:
-        image: nginx:stable-alpine
+        build: nginx
         working_dir: /application
         volumes:
             - data:/application
-            - nginx:/etc/nginx/conf.d
         ports:
             - 80
+        labels:
+            traefik.enable: true
+            traefik.frontend.entryPoints: "http,https"
 
     php-fpm:
         build: php-fpm
